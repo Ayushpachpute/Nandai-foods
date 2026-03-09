@@ -5,12 +5,12 @@ import { motion } from "framer-motion";
 import { Instagram } from "lucide-react";
 
 const galleryImages = [
-  { src: "/Nandai-foods/images/rajgira-laddu.png", alt: "Rajgira Laddu" },
-  { src: "/Nandai-foods/images/peanut-chikki.png", alt: "Peanut Chikki" },
-  { src: "/Nandai-foods/images/mukhwas-mix.png", alt: "Mukhwas Mix" },
-  { src: "/Nandai-foods/images/til-laddu.png", alt: "Til Laddu" },
-  { src: "/Nandai-foods/images/dryfruit-laddu.png", alt: "Dry Fruit Laddu" },
-  { src: "/Nandai-foods/images/rajgira-laddu.png", alt: "Rajgira Laddu 2" },
+  { src: "/images/rajgira-laddu.png", alt: "Rajgira Laddu" },
+  { src: "/images/peanut-chikki.png", alt: "Peanut Chikki" },
+  { src: "/images/mukhwas-mix.png", alt: "Mukhwas Mix" },
+  { src: "/images/til-laddu.png", alt: "Til Laddu" },
+  { src: "/images/dryfruit-laddu.png", alt: "Dry Fruit Laddu" },
+  { src: "/images/rajgira-laddu.png", alt: "Rajgira Laddu 2" },
 ];
 
 export default function InstagramGallery() {

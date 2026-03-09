@@ -33,7 +33,7 @@ export default function FeaturedProduct() {
           >
             <div className="aspect-square rounded-3xl overflow-hidden bg-gradient-to-br from-amber-100 to-orange-100 shadow-lg">
               <Image
-                src="/Nandai-foods/images/rajgira-laddu.png"
+                src="/images/rajgira-laddu.png"
                 alt="Rajgira Laddu Featured"
                 width={400}
                 height={400}

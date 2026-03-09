@@ -170,7 +170,7 @@ export default function HeroSection() {
               >
                 <div className="relative w-full aspect-square rounded-3xl overflow-hidden mb-4 bg-gradient-to-br from-amber-50 to-orange-100">
                   <Image
-                    src="/Nandai-foods/images/rajgira-laddu.png"
+                    src="/images/rajgira-laddu.png"
                     alt="Rajgira Laddu"
                     fill
                     className="object-cover"
