@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gold: #f6c453;
+  --color-cream: #fff7ef;
+  --color-dark: #2b2b2b;
+  --color-accent: #e89c2c;
+  --color-accent-light: #fde8c0;
+  --color-gold-dark: #d4a017;
+
+  --font-family-poppins: "Poppins", sans-serif;
+
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --shadow-card-hover: 0 20px 60px rgba(0, 0, 0, 0.15);
+  --shadow-gold: 0 4px 20px rgba(246, 196, 83, 0.4);
+
+  --animate-float-slow: float 6s ease-in-out infinite;
+  --animate-float-medium: float 4s ease-in-out infinite;
+  --animate-float-fast: float 3s ease-in-out infinite;
+  --animate-fade-up: fadeUp 0.6s ease-out forwards;
+  --animate-ripple: ripple 0.6s linear;
+  --animate-spin-slow: spin 8s linear infinite;
+
+  --radius-2_5xl: 20px;
+  --radius-3xl: 24px;
+  --radius-4xl: 32px;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-poppins);
+  background-color: #fff7ef;
+  color: #2b2b2b;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #fff7ef;
+}
+::-webkit-scrollbar-thumb {
+  background: #f6c453;
+  border-radius: 999px;
+}
+
+/* Hide horizontal scrollbar for category pills */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Swiper custom */
+.swiper-pagination-bullet {
+  background: #f6c453 !important;
+}
+.swiper-pagination-bullet-active {
+  background: #e89c2c !important;
+  width: 24px !important;
+  border-radius: 999px !important;
+}
