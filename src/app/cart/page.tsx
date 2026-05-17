@@ -7,13 +7,12 @@ import { Minus, Plus, Trash2, ShoppingBag, ArrowLeft, Tag } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import Navbar from "@/components/layout/Navbar";
 import BottomNav from "@/components/layout/BottomNav";
-import toast from "react-hot-toast";
 
 const DELIVERY_CHARGE = 40;
 const FREE_DELIVERY_THRESHOLD = 500;
 
 export default function CartPage() {
-  const { items, updateQuantity, removeFromCart, subtotal, clearCart } = useCart();
+  const { items, updateQuantity, removeFromCart, subtotal } = useCart();
 
   const delivery = subtotal >= FREE_DELIVERY_THRESHOLD ? 0 : DELIVERY_CHARGE;
   const total = subtotal + delivery;
@@ -22,10 +21,17 @@ export default function CartPage() {
     return sum + (orig - item.product.price) * item.quantity;
   }, 0);
 
-  const handleCheckout = () => {
-    toast.success("🎉 Order placed successfully! Thank you for choosing Nandai Foods.");
-    clearCart();
-  };
+  let whatsappMessage = "Hi Nandai Foods! 👋\n\nI want to order:\n\n";
+  items.forEach((item) => {
+    whatsappMessage += `Product: ${item.product.name}\n`;
+    whatsappMessage += `Quantity: ${item.quantity}\n`;
+    whatsappMessage += `Price: ₹${item.product.price * item.quantity}\n\n`;
+  });
+  if (delivery > 0) {
+    whatsappMessage += `Delivery: ₹${delivery}\n\n`;
+  }
+  whatsappMessage += `Total Price: ₹${total}\n\nPlease confirm my order.`;
+  const whatsappUrl = `https://wa.me/918446590836?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
     <>
@@ -192,13 +198,15 @@ export default function CartPage() {
                   </div>
                 </div>
 
-                <button
+                <a
                   id="checkout-btn"
-                  onClick={handleCheckout}
-                  className="w-full bg-gradient-to-r from-gold to-accent text-dark font-bold py-4 rounded-2xl shadow-gold hover:shadow-card-hover hover:-translate-y-0.5 transition-all active:scale-95 mb-3"
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-gradient-to-r from-gold to-accent text-dark font-bold py-4 rounded-2xl shadow-gold hover:shadow-card-hover hover:-translate-y-0.5 transition-all active:scale-95 mb-3 block text-center"
                 >
                   Proceed to Checkout
-                </button>
+                </a>
                 <Link
                   href="/#products"
                   className="w-full border border-amber-200 text-dark font-semibold py-3.5 rounded-2xl hover:bg-amber-50 transition-all text-center text-sm block"
