@@ -21,17 +21,7 @@ export default function CartPage() {
     return sum + (orig - item.product.price) * item.quantity;
   }, 0);
 
-  let whatsappMessage = "Hi Nandai Foods! 👋\n\nI want to order:\n\n";
-  items.forEach((item) => {
-    whatsappMessage += `Product: ${item.product.name}\n`;
-    whatsappMessage += `Quantity: ${item.quantity}\n`;
-    whatsappMessage += `Price: ₹${item.product.price * item.quantity}\n\n`;
-  });
-  if (delivery > 0) {
-    whatsappMessage += `Delivery: ₹${delivery}\n\n`;
-  }
-  whatsappMessage += `Total Price: ₹${total}\n\nPlease confirm my order.`;
-  const whatsappUrl = `https://wa.me/918446590836?text=${encodeURIComponent(whatsappMessage)}`;
+
 
   return (
     <>
@@ -198,15 +188,13 @@ export default function CartPage() {
                   </div>
                 </div>
 
-                <a
+                <Link
                   id="checkout-btn"
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/checkout"
                   className="w-full bg-gradient-to-r from-gold to-accent text-dark font-bold py-4 rounded-2xl shadow-gold hover:shadow-card-hover hover:-translate-y-0.5 transition-all active:scale-95 mb-3 block text-center"
                 >
                   Proceed to Checkout
-                </a>
+                </Link>
                 <Link
                   href="/#products"
                   className="w-full border border-amber-200 text-dark font-semibold py-3.5 rounded-2xl hover:bg-amber-50 transition-all text-center text-sm block"
