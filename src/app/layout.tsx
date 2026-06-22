@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/context/CartContext";
 import { Toaster } from "react-hot-toast";
+import SmoothScroll from "@/components/layout/SmoothScroll";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -47,7 +48,9 @@ export default function RootLayout({
               },
             }}
           />
-          {children}
+          <SmoothScroll>
+            {children}
+          </SmoothScroll>
         </CartProvider>
       </body>
     </html>
